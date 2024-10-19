@@ -94,7 +94,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function generateAudioCaptcha() {
         const word = words[Math.floor(Math.random() * words.length)];
-        const audioUrl = `https://api.voicerss.org/?key=cb9799a27ba744358dda960047155940&hl=en-us&src=${word}`;
+        const audioUrl = `https://api.voicerss.org/?key=YOUR_API_KEY&hl=en-us&src=${word}`;
         return { audio: audioUrl, word: word };
     }
 
