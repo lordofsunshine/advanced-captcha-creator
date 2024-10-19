@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced CAPTCHA Creator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Advanced <mark>CAPTCHA</mark> Creator</h1>
+        <div class="content-wrapper">
+            <div class="settings-column">
+                <div class="form-group">
+                    <label for="captchaType">CAPTCHA Type:</label>
+                    <select id="captchaType">
+                        <option value="text">Text</option>
+                        <option value="math">Math Expression</option>
+                        <option value="image">Image</option>
+                        <option value="audio">Audio</option>
+                    </select>
+                </div>
+                <div class="form-group" id="textOptions">
+                    <label for="captchaLength">Text Length:</label>
+                    <input type="number" id="captchaLength" min="4" max="8" value="6">
+                </div>
+                <div class="form-group" id="mathOptions" style="display: none;">
+                    <label for="mathDifficulty">Difficulty:</label>
+                    <select id="mathDifficulty">
+                        <option value="easy">Easy</option>
+                        <option value="medium">Medium</option>
+                        <option value="hard">Hard</option>
+                    </select>
+                </div>
+                <div class="form-group" id="imageOptions" style="display: none;">
+                    <label for="imageCategory">Image Category:</label>
+                    <select id="imageCategory">
+                        <option value="animals">Animals</option>
+                        <option value="objects">Objects</option>
+                        <option value="nature">Nature</option>
+                    </select>
+                </div>
+                <div id="visualOptions">
+                    <div class="form-group">
+                        <label for="backgroundColor">Background Color:</label>
+                        <input type="color" id="backgroundColor" value="#2a2a2a">
+                    </div>
+                    <div class="form-group">
+                        <label for="textColor">Text Color:</label>
+                        <input type="color" id="textColor" value="#ffffff">
+                    </div>
+                    <div class="form-group">
+                        <label for="distortionLevel">Distortion Level:</label>
+                        <input type="range" id="distortionLevel" min="0" max="10" value="5">
+                    </div>
+                    <div class="form-group">
+                        <label for="noiseLevel">Noise Level:</label>
+                        <input type="range" id="noiseLevel" min="0" max="10" value="5">
+                    </div>
+                </div>
+            </div>
+            <div class="captcha-column">
+                <div class="captcha-wrapper">
+                    <div class="captcha-container">
+                        <canvas id="captchaImage"></canvas>
+                        <div id="imageCaptcha" style="display: none;"></div>
+                        <audio id="audioCaptcha" controls style="display: none;"></audio>
+                        <p id="audioCaptchaText" style="display: none;"></p>
+                    </div>
+                    <div class="embed-code">
+                        <h2>Embed Code</h2>
+                        <textarea id="embedCode" readonly></textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="captchaInput">Enter CAPTCHA:</label>
+                    <input type="text" id="captchaInput">
+                </div>
+                <button id="validateCaptcha">Verify CAPTCHA</button>
+                <div id="validationResult"></div>
+            </div>
+        </div>
+    </div>
+    <script src="captcha.js"></script>
+</body>
+</html>
